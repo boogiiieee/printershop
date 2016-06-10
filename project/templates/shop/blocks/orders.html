@@ -1,0 +1,21 @@
+{% extends "admin_tools/dashboard/module.html" %}
+{% load i18n %}
+{% block module_content %}
+	{% if module.objects %}
+		{% spaceless %}
+			<ul> 
+				{% for item in module.objects %} 
+					<li class="{% cycle 'odd' 'even' %}">
+						<a href="{{ item.get_absolute_url }}">#{{ item.id }}: <strong>{{ item.date|date:"d.m.Y" }}</strong>&nbsp;
+							{{ item.name }}&nbsp;
+							{{ item.phone }}&nbsp;
+							{{ item.email }}
+						</a>
+					</li> 
+				{% endfor %} 
+			</ul> 
+		{% endspaceless %}
+	{% else %}
+		<h3>Ingen nye ordrer</h3>
+	{% endif %}
+{% endblock %}

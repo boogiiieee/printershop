@@ -1,0 +1,14 @@
+.my_order .ico_conv{
+	background: url(/media/img/images.png) no-repeat -95px -40px;
+
+}
+#top_menu ul{padding-left:0px;}
+input[type="text"]{line-height:25px}
+#top_menu li{
+	margin-top:-5px;
+}
+.selectbox .arrow {
+display:block;
+height:15px;
+background: url(/media/img/images.png) no-repeat 4px -98px;
+}

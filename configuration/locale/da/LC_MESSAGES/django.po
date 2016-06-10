@@ -1,0 +1,151 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-20 16:07+0400\n"
+"PO-Revision-Date: 2013-01-17 21:53\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: .\__init__.py:5 .\views.py:25
+msgid "Configuration"
+msgstr "Indstilling"
+
+#: .\models.py:11
+msgid "organization"
+msgstr "organisation"
+
+#: .\models.py:13
+msgid "phone1"
+msgstr "telefon 1"
+
+#: .\models.py:13
+msgid "main phone"
+msgstr "hjem telefoner"
+
+#: .\models.py:14
+msgid "phone2"
+msgstr "telefon 2"
+
+#: .\models.py:15
+msgid "phone3"
+msgstr "telefon 3"
+
+#: .\models.py:17
+msgid "icq1"
+msgstr "ICQ 1"
+
+#: .\models.py:17
+msgid "main icq"
+msgstr "main ICQ"
+
+#: .\models.py:18
+msgid "icq2"
+msgstr "ICQ 2"
+
+#: .\models.py:19
+msgid "icq3"
+msgstr "ICQ 3"
+
+#: .\models.py:21
+msgid "office1"
+msgstr "kontor 1"
+
+#: .\models.py:21
+msgid "main office"
+msgstr "hovedkontor"
+
+#: .\models.py:22
+msgid "office2"
+msgstr "kontor 2"
+
+#: .\models.py:23
+msgid "office3"
+msgstr "kontor 3"
+
+#: .\models.py:25
+msgid "skype"
+msgstr "Skype"
+
+#: .\models.py:27
+msgid "operating time"
+msgstr "driftstid"
+
+#: .\models.py:29
+msgid "mapx"
+msgstr "koordinat x"
+
+#: .\models.py:30
+msgid "mapy"
+msgstr "koordinat y"
+
+#: .\models.py:32
+msgid "cost delivery"
+msgstr "leveringsomkostningerne"
+
+#: .\models.py:33
+msgid "free delivery"
+msgstr "gratis forsendelse"
+
+#: .\models.py:33
+msgid "of goods for free shipping"
+msgstr "Antallet af produkter for gratis levering"
+
+#: .\models.py:35
+msgid "requisites organization"
+msgstr "organisation (oversigt)"
+
+#: .\models.py:36
+msgid "requisites address"
+msgstr "adresse (oversigt)"
+
+#: .\models.py:37
+msgid "requisites phone"
+msgstr "telefon (oversigt)"
+
+#: .\models.py:38
+msgid "requisites inn"
+msgstr "CVR-nr. (oversigt)"
+
+#: .\models.py:39
+msgid "requisites bank"
+msgstr "bankens navn (oversigt)"
+
+#: .\models.py:40
+msgid "requisites reg"
+msgstr "registreringsnr. (oversigt)"
+
+#: .\models.py:41
+msgid "requisites acct"
+msgstr "kontonr. (oversigt)"
+
+#: .\models.py:44 .\models.py:47
+msgid "configuration"
+msgstr "indstillinger"
+
+#: .\models.py:48
+msgid "configurations"
+msgstr "indstillinger"
+
+#: .\views.py:42
+msgid "Save form configuration."
+msgstr "Indstillingerne er gemt."
+
+#: .\views.py:44
+msgid "Error save form configuration."
+msgstr "Kunne ikke gemme indstillingerne."
+
+#: .\templates\blocks\configuration.html.py:9
+msgid "Save"
+msgstr "Gem"

@@ -1,0 +1,40 @@
+{% load i18n translate_interface shop_tags %}
+
+<table class="t_bg border_r">
+	<tr class="t_title border_r_t">
+		<th>
+			{{ infc|trans:"Brand" }}
+		</th>
+		<th>
+			{{ infc|trans:"Printer" }}
+		</th>
+		<th>
+			{{ infc|trans:"Patron" }}
+		</th>
+		<th>
+			{{ infc|trans:"Resource" }}
+		</th>
+		<th width="50px">
+			{{ infc|trans:"Pris" }}
+		</th>
+		<th width="100px">
+			{{ infc|trans:"Tuck" }}
+		</th>
+	</tr>
+	{% for product in product_list %}
+		<tr class="t_grad">
+			<td class="t_name">{{ product.category.title|default:"-" }}</td>
+			<td class="t_left">{{ product.printer.title|default:"-" }}</td>
+			<td>{{ product.title }}</td>
+			<td>{{ product.resource|default:"-" }}</td>
+			<td> {{ infc|trans:"rub." }} {{ product.cost|shop_intcomma|default:"-" }}</td>
+			<td class="t_left pos_rel"><a class="buy" href="#" onclick="put_to_basket($(this), {{ product.id }}); return false">{{ infc|trans:"buy" }}</a>&nbsp;<span class='add f_right' style='display:none'>{{ infc|trans:'Add' }}</span></td>
+		</tr>
+	{% endfor %}
+	<tr class="border_r_b">
+		<th></th>
+		<th class="t_right" colspan="5">
+			{{ infc|trans:"Select the cartridge and press buy" }}
+		</th>
+	</tr>
+</table>

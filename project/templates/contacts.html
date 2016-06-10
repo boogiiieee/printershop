@@ -1,0 +1,95 @@
+{% extends "default.html" %}
+
+{% load i18n translate_interface %}
+
+{% block title %}{{ infc|trans:"Contacts" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"Contacts" }}</li>
+{% endblock %}
+
+{% block content %}
+	<div class="block">
+		{% if config.organization %}<h2 class="f_left">{{ config.organization }}</h2>{% endif %}
+		{% if config.operating_time %}
+			<span class="lineheight25">{{ config.operating_time }}</span>
+			<div class="clr"></div>
+		{% endif %}
+		<div class="clr"></div>
+		{% if config.office1 or config.office2 or config.office3 %}
+			<h3 class="f_left">{{ infc|trans:"Office" }}</h3>
+			<ul class="list_st_none f_left">
+				{% if config.office1 %}<li>{{ config.office1 }}</li>{% endif %}
+				{% if config.office2 %}<li>{{ config.office2 }}</li>{% endif %}
+				{% if config.office3 %}<li>{{ config.office3 }}</li>{% endif %}
+			</ul>
+			<div class="clr"></div>
+		{% endif %}
+
+		{% if config.phone1 or config.phone2 or config.phone3 or config.icq1 or config.icq2 or config.icq3 %}
+			<h3 class="f_left">{{ infc|trans:"Phone" }}</h3>
+			<ul class="list_st_none f_left">
+				{% if config.phone1 %}<li>{{ config.phone1 }}</li>{% endif %}
+				{% if config.phone2 %}<li>{{ config.phone2 }}</li>{% endif %}
+				{% if config.phone3 %}<li>{{ config.phone3 }}</li>{% endif %}
+			</ul>
+			<ul class="list_st_none f_left">
+				{% if config.icq1 %}<li class="icq">{{ config.icq1 }}</li>{% endif %}
+				{% if config.icq2 %}<li class="icq">{{ config.icq2 }}</li>{% endif %}
+				{% if config.icq3 %}<li class="icq">{{ config.icq3 }}</li>{% endif %}
+				{% if config.skype %}
+					<li class="skype">{{ config.skype }}</li>
+				{% endif %}
+			</ul>
+			<div class="clr"></div>
+		{% endif %}
+	</div>
+	
+	{% if config.mapx and config.mapy %}
+		<div id="maps" class="f_left">
+			<h3>{{ infc|trans:"Maps" }}</h3>
+			<iframe class="border_r shadow" width="450" height="288" frameborder="0" scrolling="no" style="margin-right:20px;" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ll={{ config.mapx }},{{ config.mapy }}&hl=da&q={{ config.office1 }}&output=embed"></iframe>
+			
+		
+		
+		</div>
+	{% endif %}
+
+	<div id="contact_form_block" class="f_left">
+		<h3>{{ infc|trans:"Ask question" }}</h3>
+		<form class="block" name="feedback_form" action="" method="post">{% csrf_token %}
+			<div {% if form.name.errors %} class="error" {% endif %}>
+				<label class="f_left">{{ form.name.label }}</label>
+				<label class="f_right">{% if form.name.errors %}{{ form.errors.name }}{% endif%}</label>
+				<div class="clr"></div>
+				{{ form.name }}
+			</div>
+			<div {% if form.email.errors %} class="error" {% endif %}>
+				<label class="f_left">{{ form.email.label }}</label>
+				<label class="f_right">{% if form.email.errors %}{{ form.errors.email }}{% endif%}</label>
+				<div class="clr"></div>
+				{{ form.email }}
+			</div>
+			<div {% if form.phone.errors %} class="error" {% endif %}>
+				<label class="f_left">{{ form.phone.label }}</label>
+				<label class="f_right">{% if form.phone.errors %}{{ form.errors.phone }}{% endif%}</label>
+				<div class="clr"></div>
+				{{ form.phone }}
+			</div>
+			<div {% if form.text.errors %} class="error" {% endif %}>
+				<label class="f_left">{{ form.text.label }}</label>
+				<label class="f_right">{% if form.text.errors %}{{ form.errors.text }}{% endif%}</label>
+				<div class="clr"></div>
+				{{ form.text }}
+			</div>
+		</form>
+		<div class="clr"></div>
+		<div class="t_center">
+			<a class="but grad lineheight30" href="#" onclick="document.feedback_form.submit(); return false;">{{ infc|trans:"Send" }}</a>
+		</div>
+		<div class="clr"></div>
+	</div>
+	<div class="clr"></div>
+{% endblock %}

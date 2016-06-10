@@ -1,0 +1,27 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface shop_tags %}
+
+{% block title %}{{ infc|trans:"Search results" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"Search" }}</li>
+{% endblock %}
+
+{% block shop_content %}
+	{% if product_list %}
+		{% if shop_search_text %}
+			<h3>{{ infc|trans:"For" }} "{{ shop_search_text }}" {{ infc|trans:"found" }} {{ shop_search_count }} {{ infc|trans:"match" }}.</h3>
+		{% else %}
+			<h3>{{ infc|trans:"Found" }} {{ shop_search_count }} {{ infc|trans:"match" }}.</h3>
+		{% endif %}
+		
+		{% include "shop/list.html" %}
+	{% else %}
+		<h3>{{ infc|trans:"Search" }} {% if shop_search_text %}{{ infc|trans:"for" }} "{{ shop_search_text }}"{% endif %} {{ infc|trans:"returned no results" }}.</h3>
+		<h3>{{ infc|trans:"Select a location." }}</h3>
+	{% endif %}
+{% endblock %}
+

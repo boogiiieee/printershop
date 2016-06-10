@@ -1,0 +1,620 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-20 15:28+0400\n"
+"PO-Revision-Date: 2013-01-17 21:47\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: .\__init__.py:5
+msgid "Shop"
+msgstr "Online shop"
+
+#: .\actions.py:34
+#, python-format
+msgid "Products count %(count)d changed category %(category)s."
+msgstr "%(count)d produkter flyttet til kategorien %(category)s."
+
+#: .\actions.py:40 .\actions.py:42
+msgid "Change category"
+msgstr "Tilbage til kategori"
+
+#: .\actions.py:68
+#, python-format
+msgid "Message from the site %s."
+msgstr "Meddelelse fra hjemmesiden %s."
+
+#: .\actions.py:72
+#, python-format
+msgid "Message is sent to %d users."
+msgstr "meddelelsen blev sendt %d brugere"
+
+#: .\actions.py:78 .\actions.py:80
+msgid "Send message"
+msgstr "Send en besked"
+
+#: .\admin.py:109
+msgid "Id"
+msgstr "ID"
+
+#: .\admin.py:114
+msgid "Product"
+msgstr "Produkt"
+
+#: .\admin.py:118 .\models.py:236
+#, python-format
+msgid "<strong>%d rub.</strong>"
+msgstr "<strong>kr %d</strong>"
+
+#: .\admin.py:119
+msgid "Total"
+msgstr "Betalt"
+
+#: .\admin.py:135 .\views.py:521 .\views.py:737
+msgid "Delivery"
+msgstr "Levering fra os til dig"
+
+#: .\admin.py:170
+msgid "Order cleaned"
+msgstr "Annullere en ordre"
+
+#: .\forms.py:17 .\forms.py:31
+msgid "Category"
+msgstr "Fabrikant"
+
+#: .\forms.py:22
+msgid "Message"
+msgstr "Message"
+
+#: .\forms.py:28 .\forms.py:33
+msgid "Search"
+msgstr "Søg"
+
+#: .\forms.py:31
+msgid "the category isn't chosen..."
+msgstr "kategori ikke valgt ..."
+
+#: .\forms.py:32
+msgid "Printer"
+msgstr "Printer"
+
+#: .\forms.py:32
+msgid "the printer isn't chosen..."
+msgstr "printeren er ikke valgt..."
+
+#: .\forms.py:54
+msgid "Error count_user field"
+msgstr "Forkert mængde"
+
+#: .\forms.py:62
+msgid "Agreement"
+msgstr "Jeg accepterer vilkårene"
+
+#: .\forms.py:79
+msgid "Invalid phone field"
+msgstr "Forkert telefonnummer (+458880008888)"
+
+#: .\forms.py:87
+msgid "Invalid mbphone field"
+msgstr "Forkert telefonnummer (+458880008888)"
+
+#: .\forms.py:94
+msgid "Invalid name field"
+msgstr "Forkert navn"
+
+#: .\forms.py:101
+msgid "Error e-mail field"
+msgstr "Forkert e-mail"
+
+#: .\models.py:39
+#, fuzzy
+msgid "parent"
+msgstr "printer"
+
+#: .\models.py:39
+msgid "perent catefory if exist"
+msgstr ""
+
+#: .\models.py:40 .\models.py:106 .\models.py:125 .\models.py:369
+msgid "title"
+msgstr "Beskrivelse"
+
+#: .\models.py:41 .\models.py:126
+msgid "slug"
+msgstr "alias"
+
+#: .\models.py:42
+msgid "cod"
+msgstr "kode"
+
+#: .\models.py:43 .\models.py:183
+msgid "text"
+msgstr "tekst"
+
+#: .\models.py:43
+msgid "description category. not show"
+msgstr "ikke vises på hjemmesiden"
+
+#: .\models.py:44
+msgid "image"
+msgstr "billede"
+
+#: .\models.py:45 .\models.py:107 .\models.py:142 .\models.py:376
+msgid "is active"
+msgstr "aktiv"
+
+#: .\models.py:46 .\models.py:108 .\models.py:143 .\models.py:377
+msgid "sort"
+msgstr "rækkefølge"
+
+#: .\models.py:52 .\models.py:123
+msgid "category"
+msgstr "fabrikant"
+
+#: .\models.py:53
+msgid "categorys"
+msgstr "producenter"
+
+#: .\models.py:78
+msgid "Image"
+msgstr "Billede"
+
+#: .\models.py:91
+msgid "File name validation error."
+msgstr ""
+"Forkert filnavn. Filnavnet skal bestå af alfanumeriske tegn og symboler _-"
+
+#: .\models.py:95
+msgid "This category have products."
+msgstr "Umulige at fjerne. Kategori indeholder produkter."
+
+#: .\models.py:114 .\models.py:124
+msgid "printer"
+msgstr "printer"
+
+#: .\models.py:115
+msgid "printeres"
+msgstr "printere"
+
+#: .\models.py:127
+msgid "code"
+msgstr "kode"
+
+#: .\models.py:128
+msgid "resource"
+msgstr "ressource"
+
+#: .\models.py:129
+msgid "description"
+msgstr "beskrivelse"
+
+#: .\models.py:130 .\models.py:327
+msgid "cost"
+msgstr "kost"
+
+#: .\models.py:132 .\models.py:186 .\models.py:328
+msgid "date"
+msgstr "dato"
+
+#: .\models.py:133
+msgid "is checked"
+msgstr "gennemprøvet"
+
+#: .\models.py:140
+msgid "exel parser"
+msgstr "exel parser"
+
+#: .\models.py:149
+msgid "product"
+msgstr "produkt"
+
+#: .\models.py:150
+msgid "products"
+msgstr "produkter"
+
+#: .\models.py:173
+msgid "session"
+msgstr "session"
+
+#: .\models.py:174
+msgid "name"
+msgstr "navn"
+
+#: .\models.py:175
+msgid "phone"
+msgstr "telefon"
+
+#: .\models.py:176
+msgid "mb phone"
+msgstr "mobiltelefon"
+
+#: .\models.py:177
+msgid "e-mail"
+msgstr "e-mail"
+
+#: .\models.py:178
+msgid "address"
+msgstr "adresse"
+
+#: .\models.py:180
+msgid "is organization"
+msgstr "Kun til erhvervskunder"
+
+#: .\models.py:181
+msgid "inn"
+msgstr "CVR-nr."
+
+#: .\models.py:184 .\models.py:383
+msgid "order status"
+msgstr "ordrestatus"
+
+#: .\models.py:185
+msgid "basket's products"
+msgstr "produkter i kurv"
+
+#: .\models.py:187 .\models.py:370
+msgid "is new"
+msgstr "ny"
+
+#: .\models.py:189
+#, fuzzy
+msgid "is delivery"
+msgstr "Levering fra os til dig"
+
+#: .\models.py:190
+#, fuzzy
+msgid "cost delivery"
+msgstr "Levering"
+
+#: .\models.py:192
+msgid "is history"
+msgstr "historie"
+
+#: .\models.py:193
+msgid "is paid"
+msgstr "betalt"
+
+#: .\models.py:237
+msgid "Total cost"
+msgstr "Total kost"
+
+#: .\models.py:254
+#, python-format
+msgid "Cargo received. Order %(id)d in %(domain)s."
+msgstr "Tak! Din pakke blev modtaget. Ordre #%(id)d online %(domain)s."
+
+#: .\models.py:259
+#, python-format
+msgid "Cargo received. Order #%d."
+msgstr "Din pakke blev modtaget. Tjek e-mail. Ordre #%d."
+
+#: .\models.py:274
+#, python-format
+msgid ""
+"Cartridges are processed and pending payment. Order %(id)d in %(domain)s."
+msgstr ""
+"Dine patroner er klare for at blive behandlet. Din betaling forventes. Ordre"
+" #%(id)d online %(domain)s."
+
+#: .\models.py:279
+#, python-format
+msgid "Pending payment. Order #%d."
+msgstr ""
+"Dine patroner er klare for at blive behandlet. Tjek venligst din e-mail med "
+"betaling vejledning. Ordre #%d."
+
+#: .\models.py:285
+#, python-format
+msgid "Cargo shipped. Order %(id)d in %(domain)s."
+msgstr ""
+"Din pakke blev sendt tilbage til dig. Ordre #%(id)d online %(domain)s."
+
+#: .\models.py:290
+#, python-format
+msgid "Cargo shipped. Order #%d."
+msgstr "Din pakke blev sendt tilbage til dig. Tjek e-mail. Ordre #%d."
+
+#: .\models.py:296
+#, python-format
+msgid "Order has been canceled. Order %(id)d in %(domain)s."
+msgstr "Din ordre blev aflyst. Ordre #%(id)d online %(domain)s."
+
+#: .\models.py:305
+#, python-format
+msgid "Order has been done. Order %(id)d in %(domain)s."
+msgstr "Din ordre er fuld afsluttet. Ordre #%(id)d online %(domain)s."
+
+#: .\models.py:313
+msgid "order"
+msgstr "rækkefølge"
+
+#: .\models.py:314
+msgid "Orders"
+msgstr "Ordrer"
+
+#: .\models.py:324
+msgid "count"
+msgstr "nummer"
+
+#: .\models.py:325
+msgid "count user"
+msgstr "nummer (bruger værdi)"
+
+#: .\models.py:326
+msgid "count cancel"
+msgstr "antallet af annullerede"
+
+#: .\models.py:335
+msgid "Error count field"
+msgstr "Forkert nummer"
+
+#: .\models.py:350
+msgid "basket"
+msgstr "kurven"
+
+#: .\models.py:351
+msgid "baskets"
+msgstr "kurven"
+
+#: .\models.py:370
+msgid "Set this status if order is new."
+msgstr "Vælg denne status, hvis ordren er ny."
+
+#: .\models.py:371
+msgid "is last"
+msgstr "gjort"
+
+#: .\models.py:371
+msgid "Set this status if order is done."
+msgstr "Vælg denne status, hvis ordren afgives."
+
+#: .\models.py:372
+msgid "is cancel"
+msgstr "aflyst"
+
+#: .\models.py:372
+msgid "Set this status if order canceled."
+msgstr "Vælg denne status, hvis ordren er annulleret."
+
+#: .\models.py:373
+msgid "is georgia received"
+msgstr "Pakken modtaget."
+
+#: .\models.py:373
+msgid "Send notice if georgia received."
+msgstr "Vælg denne status, hvis er pakken modtaget."
+
+#: .\models.py:374
+msgid "is pending payment"
+msgstr "til betaling"
+
+#: .\models.py:374
+msgid "Send notice if cartridges are processed and pending payment."
+msgstr ""
+"Vælg denne status, hvis patronerne er behandlet og ordren skal betales."
+
+#: .\models.py:375
+msgid "is cargo shipped"
+msgstr "pakken afsendt"
+
+#: .\models.py:375
+msgid "Send notice if cargo shipped."
+msgstr "Vælg denne status hvis pakken blev afsendt."
+
+#: .\models.py:384
+msgid "order statuses"
+msgstr "status"
+
+#: .\views.py:58
+msgid "New orders"
+msgstr "Nye ordrer"
+
+#: .\views.py:169
+msgid "Error basket cleaned"
+msgstr "Fejl at rense kurven"
+
+#: .\views.py:172
+msgid "Basket cleaned"
+msgstr "Kurven tømmes"
+
+#: .\views.py:203
+msgid "Basket saved"
+msgstr "Gemt kurven"
+
+#: .\views.py:251
+#, python-format
+msgid "Order is accepted. Order %(id)d in %(domain)s."
+msgstr ""
+"Tak! Din foreløbig ordre blev accepteret. Ordre #%(id)d online %(domain)s."
+
+#: .\views.py:430
+msgid "Satrt date"
+msgstr "Startdato"
+
+#: .\views.py:431
+msgid "Stop date"
+msgstr "Udløbsdato"
+
+#: .\views.py:504
+msgid "#id"
+msgstr "#ID"
+
+#: .\views.py:504
+msgid "Title"
+msgstr "Titel"
+
+#: .\views.py:504
+msgid "Price"
+msgstr "Pris"
+
+#: .\views.py:504
+msgid "Count"
+msgstr "Nummer"
+
+#: .\views.py:504
+msgid "Cost"
+msgstr "Pris"
+
+#: .\views.py:538
+#, python-format
+msgid "History created at %s"
+msgstr "Historien skabte %s"
+
+#: .\views.py:542
+msgid "History"
+msgstr "Story"
+
+#: .\views.py:584
+#, python-format
+msgid "Created by %(date)s on %(domain)s. Order #%(id)d."
+msgstr "Oprettet %(date)s online %(domain)s. Ordre #%(id)d."
+
+#: .\views.py:588
+msgid "Recipient:"
+msgstr "Modtager:"
+
+#: .\views.py:593 .\views.py:605 .\views.py:671
+#, python-format
+msgid "Address: %s"
+msgstr "Adresse: %s"
+
+#: .\views.py:596 .\views.py:608 .\views.py:659
+#, python-format
+msgid "Name: %s"
+msgstr "Navn: %s"
+
+#: .\views.py:600
+msgid "Sender:"
+msgstr "Afsender:"
+
+#: .\views.py:612
+msgid "Cut and paste on the packaging"
+msgstr "Klip seddelen ud og lim på din pakke"
+
+#: .\views.py:641
+#, python-format
+msgid "The origin of the sheet http://%s."
+msgstr "Oprettet på hjemmesiden http://%s."
+
+#: .\views.py:652
+msgid "Faktura"
+msgstr "Faktura"
+
+#: .\views.py:662 .\views.py:665 .\views.py:687
+#, python-format
+msgid "Phone: %s"
+msgstr "Tlf.: %s"
+
+#: .\views.py:668
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: .\views.py:674 .\views.py:693
+msgid "Inn: %s"
+msgstr "CVR-nr.: %s"
+
+#: .\views.py:699
+msgid "Factura:"
+msgstr "Faktura"
+
+#: .\views.py:702
+msgid "Kundenummer:"
+msgstr "Kundenummer:"
+
+#: .\views.py:705
+msgid "Dato:"
+msgstr "Dato:"
+
+#: .\views.py:708
+msgid "Side:"
+msgstr "Side:"
+
+#: .\views.py:713
+msgid "Intern faktura:"
+msgstr "Intern faktura nr.:"
+
+#: .\views.py:717
+msgid "Factura #id"
+msgstr "Varenr."
+
+#: .\views.py:717
+msgid "Factura title"
+msgstr "Beskrivelse"
+
+#: .\views.py:717
+msgid "Factura count"
+msgstr "Antal"
+
+#: .\views.py:717
+msgid "Factura price"
+msgstr "Enhedspris"
+
+#: .\views.py:717
+msgid "Factura sale %"
+msgstr "%"
+
+#: .\views.py:717
+msgid "Factura cost"
+msgstr "Pris"
+
+#: .\views.py:748
+msgid "Price without VAT"
+msgstr "Pris uden moms"
+
+#: .\views.py:748
+msgid "VAT"
+msgstr "Moms"
+
+#: .\views.py:748
+msgid "The amount of VAT"
+msgstr "Moms udgør"
+
+#: .\views.py:748
+msgid "In total, incl. VAT"
+msgstr "I alt DKK inkl. moms"
+
+#: .\views.py:766
+msgid "Total factura"
+msgstr "Betalt"
+
+#: .\templatetags\shop_tags.py:35
+msgid "Error token tag \"ShopPrductById\""
+msgstr ""
+
+#: .\templatetags\shop_tags.py:54
+msgid "Error token tag \"ShopBasketMin\""
+msgstr ""
+
+#: .\templatetags\shop_tags.py:75
+msgid "Error token tag \"ShopSearchMin\""
+msgstr ""
+
+#: .\templatetags\shop_tags.py:105
+msgid "Error token tag \"ShopSearch\""
+msgstr ""
+
+#: .\templatetags\shop_tags.py:124
+msgid "Error token tag \"ShopGetCategory\""
+msgstr ""
+
+#: .\templatetags\shop_tags.py:176
+msgid "Error token tag \"get_url\""
+msgstr ""
+
+#~ msgid "%d rub."
+#~ msgstr "kr %d"
+
+#~ msgid "Sale %"
+#~ msgstr "%"

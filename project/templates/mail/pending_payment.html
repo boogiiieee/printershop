@@ -1,0 +1,18 @@
+{% extends "mail/shop.html" %}
+{% load i18n %}
+
+{% block content %}
+<div>{% blocktrans %}Cartridges are processed and pending payment.{% endblocktrans %}</div>
+<br/>
+{% if hob %}
+<div>{% trans "To pay, go to" %}: http://{{ domain }}/basket/order/buy/?id={{ hob.hash }}</div>{% else %}
+<div>{{ config.requisites_org }}</div>
+<div>{{ config.requisites_adr }}</div>
+<div><strong>{% trans "Phone" %}</strong> {{ config.requisites_phone }}</div>
+<div>{{ email }}</div>
+<div>{{ config.requisites_bank }}</div>
+<div><strong>{% trans "Registreringsnr." %}</strong> {{ config.requisites_reg }} <strong>{% trans "Kontonr." %}</strong> {{ config.requisites_acct }}</div>
+<br/>
+<div>{% blocktrans %}(Quote the order number in the base payment){% endblocktrans %}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% load i18n %}
+<div>{% blocktrans %}User's question on the website {{ domain }}.{% endblocktrans %}</div>
+<br/>
+<div>{{ obj.date_question }}</div>
+<br/>
+<div><strong>{% trans "Name" %}:</strong> {{ obj.name }}</div>
+<div>{% if obj.email %}<strong>{% trans "E-mail" %}:</strong> {{ obj.email }}{% endif %}</div>
+<div>{% if obj.phone %}<strong>{% trans "Phone" %}:</strong> {{ obj.phone }}{% endif %}</div>
+<br/>
+<div><strong>{% trans "Question" %}:</strong></div>
+<div>{{ obj.question|striptags|safe }}</div>
+<br/>
+<div>{% trans "To answer the question" %}: http://{{ domain }}/admin/questionanswer/questionansweritem/{{ obj.id }}/</div>
+<br/>
+<div>{% trans "Auto send message." %}</div>

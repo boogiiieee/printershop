@@ -1,0 +1,18 @@
+{% load i18n translate_interface %}
+
+{% if count %}
+	<div class="t_center italic">
+		<span>
+			{{ infc|trans:"In basket" }}
+		</span>
+		<span class="white">
+			&nbsp;{{ count }}&nbsp;
+		</span>
+		<span>
+			{{ infc|trans:"product" }}
+		</span>
+	</div>
+{% else %}
+	<div class="t_center">{{ infc|trans:"basket empty" }}</div>
+{% endif %}
+

@@ -1,0 +1,25 @@
+{% load paginate translate_interface shop_tags %}
+
+{% if is_paginated %}
+	{% paginate_split_list page_range page %}
+	<div class="paginate block">
+		{% if paginate_page_range.1 %}
+			<a class="prev" href="{% get_url 'page' paginate_page_range.1 %}">&nbsp;</a>
+		{% endif %}
+		
+		{% for interval,more in paginate_page_range.0 %}
+			{% for p in interval %}
+				{% ifequal p page %}
+					<span class="border_r grad">{{ p }}</span>
+				{% else %}
+					<a class="pag" href="{% get_url 'page' p %}">{{ p }}</a>
+				{% endifequal %}
+			{% endfor %}
+			{% if more %}&nbsp; ... &nbsp;{% endif %}
+		{% endfor %}
+		
+		{% if paginate_page_range.2 %}
+			<a class="next" href="{% get_url 'page' paginate_page_range.2 %}">&nbsp;</a>
+		{% endif %}
+	</div>
+{% endif %}

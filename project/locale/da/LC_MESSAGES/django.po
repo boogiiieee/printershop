@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-20 16:17+0400\n"
+"PO-Revision-Date: 2013-01-17 21:50\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: .\__init__.py:5
+msgid "Project"
+msgstr "OTHER"
+
+#: .\models.py:11
+msgid "name"
+msgstr "navn"
+
+#: .\models.py:12
+msgid "name ru"
+msgstr "navn"
+
+#: .\models.py:13
+msgid "title"
+msgstr "titel"
+
+#: .\models.py:19
+msgid "item"
+msgstr "post"
+
+#: .\models.py:20
+msgid "translate items"
+msgstr "translation"
+
+#: .\templates\mail\cargo_shipped.html.py:4
+msgid "Cargo shipped."
+msgstr ""
+"Vi har sendt dine patroner tilbage til dig, så må du forvente din pakke i "
+"den nærmeste fremtid."
+
+#: .\templates\mail\feedback.html.py:2
+#, python-format
+msgid "User's message on the website %(domain)s."
+msgstr "Besked fra hjemmesiden %(domain)s."
+
+#: .\templates\mail\feedback.html.py:6
+#: .\templates\mail\questionanswer.html.py:6 .\templates\mail\shop.html.py:7
+msgid "Name"
+msgstr "Navn"
+
+#: .\templates\mail\feedback.html.py:7
+#: .\templates\mail\questionanswer.html.py:7 .\templates\mail\shop.html.py:10
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\templates\mail\feedback.html.py:8
+#: .\templates\mail\pending_payment.html.py:10
+#: .\templates\mail\questionanswer.html.py:8 .\templates\mail\shop.html.py:8
+msgid "Phone"
+msgstr "Telefon"
+
+#: .\templates\mail\feedback.html.py:10
+msgid "Message"
+msgstr "Besked"
+
+#: .\templates\mail\feedback.html.py:13
+msgid "To show the message"
+msgstr "Se Indlæg"
+
+#: .\templates\mail\feedback.html.py:15
+#: .\templates\mail\questionanswer.html.py:15
+#: .\templates\mail\send_message_action.html.py:8
+#: .\templates\mail\shop.html.py:27
+msgid "Auto send message."
+msgstr "Denne e-mail sendes automatisk. Ikke svar på denne besked."
+
+#: .\templates\mail\georgia_received.html.py:4
+msgid "Cargo received."
+msgstr ""
+"Tak! Din pakke blev modtaget. Nu undersøger vi dine patroner for "
+"genopfyldningsmulighed. Du skal forvente en besked snart."
+
+#: .\templates\mail\order_accepted.html.py:4
+msgid "Order is accepted."
+msgstr ""
+"Tak! Din foreløbig ordre blev accepteret. Nu må du gerne pakke dine patroner"
+" og aflevere dem til dit lokal Posthus. Du må eventuelt klippe sedellen med "
+"vores adresse og lime den på din pakke."
+
+#: .\templates\mail\order_canceled.html.py:4
+msgid "Order has been canceled."
+msgstr "Din ordre blev aflyst."
+
+#: .\templates\mail\order_done.html.py:4
+msgid "Order has been done."
+msgstr ""
+"Kære kunde, din ordre er fuld afsluttet. Tak for din henvendelse!\n"
+"Vi håber, at du fik en god service, og håber på en langvarig samarbejde."
+
+#: .\templates\mail\pending_payment.html.py:5
+msgid "Cartridges are processed and pending payment."
+msgstr ""
+"Dine patroner er klare for at blive behandlet. Du anbefales at overføre "
+"betalingen. Så snart vi modtager din betaling, starter vi at behandle dine "
+"patroner."
+
+#: .\templates\mail\pending_payment.html.py:7
+msgid "To pay, go to"
+msgstr "Klik venligst på dette link at overføre betalingen"
+
+#: .\templates\mail\pending_payment.html.py:16
+msgid "(Quote the order number in the base payment)"
+msgstr ""
+"Du kan bruge denne e-mail som en regning til at betale. Husk at angive din "
+"ordre nr. ved betaling. Tak!"
+
+#: .\templates\mail\questionanswer.html.py:2
+#, python-format
+msgid "User's question on the website %(domain)s."
+msgstr "Brugers spørgsmål på hjemmesiden %(domain)s."
+
+#: .\templates\mail\questionanswer.html.py:10
+msgid "Question"
+msgstr "Spørgsmål"
+
+#: .\templates\mail\questionanswer.html.py:13
+msgid "To answer the question"
+msgstr "At besvare spørgsmålet"
+
+#: .\templates\mail\send_message_action.html.py:2
+#, python-format
+msgid "Message from the site %(domain)s."
+msgstr "Besked fra hjemmesiden %(domain)s."
+
+#: .\templates\mail\shop.html.py:3
+#, python-format
+msgid "Order #%(id)s."
+msgstr "Ordre #%(id)s."
+
+#: .\templates\mail\shop.html.py:9
+msgid "MbPhone"
+msgstr "Mobiltelefon"
+
+#: .\templates\mail\shop.html.py:11
+msgid "Address"
+msgstr "Adresse"
+
+#: .\templates\mail\shop.html.py:12
+msgid "Inn"
+msgstr "CVR-nr."
+
+#: .\templates\mail\shop.html.py:13
+msgid "Text"
+msgstr "Kommentar"
+
+#: .\templates\mail\shop.html.py:15
+msgid "Status"
+msgstr "Status"
+
+#: .\templates\mail\shop.html.py:17
+msgid "Composition order"
+msgstr "Din ordre består af følgende punkter"
+
+#: .\templates\mail\shop.html.py:19
+msgid "stk."
+msgstr "stk."
+
+#: .\templates\mail\shop.html.py:19
+#, python-format
+msgid "%(cost)s rub."
+msgstr "kr %(cost)s"
+
+#: .\templates\mail\shop.html.py:22
+msgid "Delivery"
+msgstr "Levering"
+
+#: .\templates\mail\shop.html.py:22 .\templates\shop\admin\report.html.py:67
+msgid "rub."
+msgstr "kr"
+
+#: .\templates\mail\shop.html.py:25
+msgid "Total"
+msgstr "At betale i alt inkl. moms"
+
+#: .\templates\mail\shop.html.py:25
+#, python-format
+msgid "%(total)s rub."
+msgstr "kr %(total)s"
+
+#: .\templates\shop\actions\simple_action.html.py:9
+msgid "Send"
+msgstr "Send"
+
+#: .\templates\shop\admin\report.html.py:5
+#: .\templates\shop\admin\report.html.py:13
+msgid "Report"
+msgstr "Indberette"
+
+#: .\templates\shop\admin\report.html.py:5
+msgid "Django site admin"
+msgstr ""
+
+#: .\templates\shop\admin\report.html.py:11
+msgid "Home"
+msgstr ""
+
+#: .\templates\shop\admin\report.html.py:12
+msgid "Shop"
+msgstr "Online shop"
+
+#: .\templates\shop\admin\report.html.py:18
+msgid "Create report"
+msgstr "Opret en rapport"
+
+#: .\templates\shop\admin\report.html.py:20
+msgid "Download history"
+msgstr "Hent historie"
+
+#: .\templates\shop\admin\report.html.py:42
+msgid "Create"
+msgstr "Skab"
+
+#: .\templates\shop\admin\report.html.py:49
+msgid "Basic data"
+msgstr "Grunddata"
+
+#: .\templates\shop\admin\report.html.py:53
+msgid "Unique customers"
+msgstr "Antallet af unikke kunder"
+
+#: .\templates\shop\admin\report.html.py:54
+msgid "Total orders"
+msgstr "Antallet af ordrer"
+
+#: .\templates\shop\admin\report.html.py:55
+msgid "Paid orders"
+msgstr "Betalt ordrer"
+
+#: .\templates\shop\admin\report.html.py:56
+msgid "The total number of processed cartridges"
+msgstr "Samlet antal af behandlet patroner"
+
+#: .\templates\shop\admin\report.html.py:57
+msgid "Turnover"
+msgstr "Omsætning"
+
+#: .\templates\shop\admin\report.html.py:76
+msgid "Statistic"
+msgstr "Statistik"
+
+#: .\templates\shop\admin\report.html.py:80
+msgid "Product"
+msgstr "Produkt"
+
+#: .\templates\shop\admin\report.html.py:81
+msgid "Processed cartridges"
+msgstr "Patroner behandlet "
+
+#: .\templates\shop\admin\report.html.py:82
+msgid "Abandoned cartridges"
+msgstr "Patroner aflyst "
+
+#: .\templates\shop\admin\report.html.py:83
+msgid "Histogram popularity"
+msgstr "Histogram popularitet"
+
+#: .\templates\shop\admin\shop_order_change_form.html.py:6
+msgid "Cancel order"
+msgstr "Ordrer annuleret"
+
+#: .\templates\shop\admin\shop_order_tabular.html.py:15
+msgid "Delete?"
+msgstr ""
+
+#: .\templates\shop\admin\shop_order_tabular.html.py:28
+msgid "View on site"
+msgstr ""
+
+#~ msgid "this link"
+#~ msgstr "gå til dette link"

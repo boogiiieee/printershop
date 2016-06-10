@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-11 09:51+0700\n"
+"PO-Revision-Date: 2012-12-18 19:06\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: .\__init__.py:5
+msgid "News"
+msgstr "Bestand"
+
+#: .\models.py:16
+msgid "title"
+msgstr "navn"
+
+#: .\models.py:17
+msgid "image"
+msgstr "billede"
+
+#: .\models.py:17
+msgid "If exist flash then it has show."
+msgstr "Hvis du har downloadet flash-fil, vil den blive vist."
+
+#: .\models.py:18
+msgid "flash"
+msgstr "flash"
+
+#: .\models.py:18
+msgid "Recommended size 250x150 px."
+msgstr "Anbefalet størrelse 250x150 px."
+
+#: .\models.py:19
+msgid "text"
+msgstr "beskrivelse"
+
+#: .\models.py:20
+msgid "date_created"
+msgstr "oprettelsesdato"
+
+#: .\models.py:22
+msgid "is_active"
+msgstr "aktivt"
+
+#: .\models.py:23
+msgid "order"
+msgstr "rækkefølge"
+
+#: .\models.py:40 .\models.py:43
+msgid "File name validation error"
+msgstr ""
+"Forkert filnavn. Filnavnet skal bestå af alfanumeriske tegn og symboler _-"
+
+#: .\models.py:46
+msgid "action article"
+msgstr "handling"
+
+#: .\models.py:47
+msgid "actions"
+msgstr "bestand"
+
+#: .\templatetags\actions_tags.py:35
+msgid "Error token tag \"ActionsGetItem\""
+msgstr ""

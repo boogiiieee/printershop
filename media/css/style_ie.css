@@ -1,0 +1,19 @@
+.selectbox .arrow {
+display:block;
+height:15px;
+background: url(/media/img/images.png) no-repeat 4px -98px;
+}
+.border_r, .menu li, #messages li,.my_order .bg,#top_menu li.active a, input[type="text"], textarea,.left_img .border_r,.selectbox .trigger, select, .selectbox,.but,.select, .selectbox .dropdown,.selectbox .trigger,.tb{
+	behavior:url(/media/css/PIE.htc);
+}
+.search_but,.t_bg .border_r_t th:first-child,.t_bg .border_r_t th:last-child,.t_bg .border_r_b th:first-child,.t_bg .border_r_b th:last-child,.paginate a, {
+	behavior:url(/media/css/PIE.htc);
+}
+.my_order .bg,#top_menu li.active a{
+	position:relative;
+	/*z-index:-100;*/
+}
+
+
+
+

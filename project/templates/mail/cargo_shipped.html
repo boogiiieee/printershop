@@ -1,0 +1,8 @@
+{% extends "mail/shop.html" %}
+{% load i18n %}
+
+{% block content %}
+{% blocktrans %}Cargo shipped.{% endblocktrans %}
+
+{% if obj.is_org %}<div><strong>{% trans "Downloade faktura" %}</strong> http://{{ domain }}/shop/invoice/?id={{ obj.id }}</div>{% endif %}
+{% endblock %}

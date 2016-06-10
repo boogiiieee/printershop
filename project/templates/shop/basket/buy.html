@@ -1,0 +1,70 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface shop_tags pay_tags %}
+
+{% block title %}{{ infc|trans:"Order" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li><a href="/basket/?id={{ id }}">{{ infc|trans:"Basket" }}</a><span class="sep">/<span></li>
+	<li>{{ infc|trans:"Order buy" }}</li>
+{% endblock %}
+
+{% block shop_top %}
+{% endblock %}
+
+
+{% block shop_content %}
+	<div>
+		{% GetPayLink o %}
+		<input class="but f_left" type="button" onclick="{{ PaySubmitJS }}" value="{{ infc|trans:'Pay' }}" />
+		<div class="clr"></div>
+	</div>
+{% endblock %}
+
+
+{% if o %}
+	{% block content2_text %}
+		<h2>{{ infc|trans:"Composition order" }}</h2>
+		{% if o.get_op %}
+			<table class="t_bg border_r">
+				<tbody>
+					<tr class="t_title border_r_t">
+						<th>{{ infc|trans:"Brand" }}</th>
+						<th>{{ infc|trans:"Printer" }}</th>
+						<th>{{ infc|trans:"Patron" }}</th>
+						<th>{{ infc|trans:"Price" }}</th>
+						<th>{{ infc|trans:"Cost" }}</th>
+						<th>{{ infc|trans:"Amount" }}</th>
+					</tr>
+
+					{% for b in o.get_op %}
+						<tr class="t_grad">
+							<td class="t_name">{{ b.product.category.title }}</td>
+							<td class="t_left">{{ b.product.printer.title }}</td>
+							<td>{{ b.product.title }}</td>
+							<td>{{ infc|trans:"rub." }} {{ b.get_cost|shop_intcomma }}</td>
+							<td>{{ infc|trans:"rub." }} {{ b.get_total_cost|shop_intcomma }}</td>
+							<td>{{ b.count }}</td>
+						</tr>
+					{% endfor %}
+					
+					{% if o.is_delivery %}
+						<tr class="t_grad">
+							<td colspan="5" class="t_right">{{ infc|trans:"Delivery" }}</td>
+							<td>{{ infc|trans:"rub." }} {{ o.cost_delivery|shop_intcomma }}</td>
+						</tr>
+					{% endif %}
+
+					<tr class="border_r_b">
+						<th></th>
+						<th colspan="5" class="t_right">
+							{{ infc|trans:"In total" }}:&nbsp;{{ infc|trans:"rub." }} {{ o.get_total_cost|shop_intcomma }}
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		{% endif %}
+	{% endblock %}
+{% endif %}

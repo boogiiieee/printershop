@@ -1,0 +1,114 @@
+.selectbox {
+	vertical-align: middle;
+	cursor: pointer;
+	color:#888;
+	font-style:italic;
+	margin-right:5px;
+}
+.selectbox .select {
+	border-radius: 15px;
+	border: 1px solid #C2C2C2;
+	height: 25px;
+	padding: 0 8px;
+	width: 200px;
+	background:white;
+	box-shadow: inset 0px 0px 8px 0px #C5C7C1;
+}
+
+.selectbox.focused .select {
+	border: 1px solid #5794BF;
+}
+.selectbox .select .text {
+	display: block;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	line-height: 25px;
+}
+.selectbox .trigger {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30px;
+	height: 100%;
+
+	border-radius:15px;
+	color:#3F4E15;
+	background: #B6E720;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#B6E720), to(#82B209));
+	background: -webkit-linear-gradient(#B6E720, #82B209);
+	background: -moz-linear-gradient(#B6E720, #82B209);
+	background: -ms-linear-gradient(#B6E720, #82B209);
+	background: -o-linear-gradient(#B6E720, #82B209);
+	background: linear-gradient(#B6E720, #82B209);
+	-pie-background: linear-gradient(#B6E720, #82B209);
+}
+
+.selectbox .arrow {
+	position: relative;
+	top: 0;
+	right: 0;
+	background: url(/media/img/images.png) no-repeat 4px -95px;
+	padding: 3px 5px 3px 10px;
+	margin-left: 5px;
+}
+.selectbox .dropdown {
+	top: 28px;
+	left:7px;
+	width: 200px;
+	margin: 0;
+	background:white;
+	padding-bottom:10px;
+}
+.selectbox .dropdown  ul{
+	max-height:160px;
+	width: 200px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+.selectbox li {
+	padding: 3px 16px 3px 10px;
+	list-style:none;
+	background:white;
+	margin:0px;
+	color:##C2C2C2;
+	list-style:italic;
+	list-style:none;
+	border:1px solid #C2C2C2;
+}/*
+.selectbox li:last-child{
+	border-radius:0 0 15px 15px;
+	border-top:none;
+}*/
+
+.selectbox li.selected {
+	color:white;
+	background: #B6E720;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#B6E720), to(#82B209));
+	background: -webkit-linear-gradient(#B6E720, #82B209);
+	background: -moz-linear-gradient(#B6E720, #82B209);
+	background: -ms-linear-gradient(#B6E720, #82B209);
+	background: -o-linear-gradient(#B6E720, #82B209);
+	background: linear-gradient(#B6E720, #82B209);
+	-pie-background: linear-gradient(#B6E720, #82B209);
+	border:none;
+}
+.selectbox li:hover {
+	color:white;
+	background: #B6E720;
+	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#B6E720), to(#82B209));
+	background: -webkit-linear-gradient(#B6E720, #82B209);
+	background: -moz-linear-gradient(#B6E720, #82B209);
+	background: -ms-linear-gradient(#B6E720, #82B209);
+	background: -o-linear-gradient(#B6E720, #82B209);
+	background: linear-gradient(#B6E720, #82B209);
+	-pie-background: linear-gradient(#B6E720, #82B209);
+	border:none;
+}
+.selectbox li.disabled {
+	color: #AAA;
+}
+.selectbox li.disabled:hover {
+	background: none;
+}

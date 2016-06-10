@@ -1,0 +1,130 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface shop_tags %}
+
+{% block title %}{{ infc|trans:"Basket" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"Basket" }}</li>
+{% endblock %}
+
+{% block shop_top %}
+{% endblock %}
+
+{% block shop_content %}
+	
+	{% if o and o.get_total_count %}
+		<h3>{{ infc|trans:"Order" }}</h3>
+		<form class="block" name="shop_basket_form" action="" method="post">{% csrf_token %}
+			<table class="t_bg border_r basket_order">
+				<tbody>
+					<tr class="t_title border_r_t">
+						<th>{{ infc|trans:"Brand" }}</th>
+						<th>{{ infc|trans:"Printer" }}</th>
+						<th>{{ infc|trans:"Patron" }}</th>
+						<th width="50px">{{ infc|trans:"Price" }}</th>
+						<th width="70px">{{ infc|trans:"Cost" }}</th>
+						<th>{{ infc|trans:"Amount" }}</th>
+						<th>{{ infc|trans:"Delete" }}</th>
+					</tr>
+					{{ formset.management_form }}
+					{% for form in formset %}
+						<tr class="t_grad">
+							{% ShopPrductById 'product_basket' form.product.value %}
+							<td class="t_name">{{ product_basket.category.title|default:"-" }}</td>
+							<td class="t_left">{{ product_basket.printer.title|default:"-" }}</td>
+							<td>{{ product_basket.title }}</td>
+							<td>{{ infc|trans:"rub." }} {{ product_basket.get_cost|shop_intcomma }}</td>
+							<td>{{ infc|trans:"rub." }} {{ product_basket.get_cost|mult:form.count_user.value|shop_intcomma }}</td>
+							<td>{{ form.count_user.errors }} {{ form.count_user }}</td>
+							<td>{{ form.DELETE }}</td>
+						</tr>
+						{% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+					{% endfor %}
+					
+					{% if o.is_delivery %}
+						<tr>
+							<td></td>
+							<td colspan="5" class="t_right">{{ infc|trans:"Delivery" }}:&nbsp; {{ infc|trans:"rub." }} {{ o.cost_delivery|shop_intcomma }}</td>
+						</tr>
+					{% endif %}
+						
+					<tr class="border_r_b">
+						<th>&nbsp;</th>
+						<th colspan="6" class="t_right">
+							{{ infc|trans:"In total" }}:&nbsp;{{ infc|trans:"rub." }} {{ o.get_total_cost|shop_intcomma }}
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+		
+		<div>
+			<a class="but f_left" href="{{ request.META.HTTP_REFERER }}">{% if back %}{{ infc|trans:"Back to shopping" }}{% else %}{{ infc|trans:"Back" }}{% endif %}</a>			
+			<a class="but f_right margin_l" href="/basket/order/">{{ infc|trans:"Order" }}</a>
+			<a class="but f_right margin_l" href="#" onclick="document.shop_basket_form.submit(); return false;">{{ infc|trans:"Save" }}</a>
+			<a class="but f_right margin_l" href="/shop/clean/" onclick="return confirm('{{ infc|trans:"Are you sure?" }}')">{{ infc|trans:"Clear" }}</a>
+			<div class="clr"></div>
+		</div>
+	{% else %}
+		<h3 class="block">{{ infc|trans:"Cart is empty." }}</h3>
+	{% endif %}
+{% endblock %}
+
+{% block content2 %}
+	{% if history_list %}
+	<div class="content block border_r">
+			<h2>{{ infc|trans:"History" }}</h2>
+			{% for item in history_list %}
+				<div class="block">
+					<div class="date otstup_min"><span class="grad border_r">{{ item.date|date:"d.m.Y" }}</span></div>
+					{% if item.get_op %}
+						<table class="t_bg border_r">
+							<tbody>
+								<tr class="t_title border_r_t">
+									<th>{{ infc|trans:"Brand" }}</th>
+									<th>{{ infc|trans:"Printer" }}</th>
+									<th>{{ infc|trans:"Patron" }}</th>
+									<th>{{ infc|trans:"Price" }}</th>
+									<th>{{ infc|trans:"Cost" }}</th>
+									<th>{{ infc|trans:"Amount" }}</th>
+								</tr>
+
+								{% for b in item.get_op %}
+									<tr class="t_grad">
+										<td class="t_name">{{ b.product.category.title }}</td>
+										<td class="t_left">{{ b.product.printer.title }}</td>
+										<td>{{ b.product.title }}</td>
+										<td width="50px">{{ infc|trans:"rub." }} {{ b.get_cost|shop_intcomma }}</td>
+										<td width="70px">{{ infc|trans:"rub." }} {{ b.get_total_cost|shop_intcomma }}</td>
+										<td>{{ b.count }}</td>
+									</tr>
+								{% endfor %}
+								
+								{% if item.is_delivery %}
+									<tr class="t_grad">
+										<td colspan="4">{{ infc|trans:"Delivery" }}</td>
+										<td>{{ infc|trans:"rub." }} {{ item.cost_delivery|shop_intcomma }}</td>
+										<td></td>
+									</tr>
+								{% endif %}
+
+								<tr class="border_r_b">
+									<th></th>
+									<th colspan="5" class="t_right">
+										{{ infc|trans:"In total" }}:&nbsp;{{ infc|trans:"rub." }} {{ item.get_total_cost|shop_intcomma }}
+									</th>
+								</tr>
+							</tbody>
+						</table>
+					{% else %}
+						<h3>{{ infc|trans:"Order is empty." }}<h3>
+					{% endif %}
+				</div>
+			{% endfor %}
+		{% include "paginate.html" %}
+	</div>
+	{% endif %}
+{% endblock %}

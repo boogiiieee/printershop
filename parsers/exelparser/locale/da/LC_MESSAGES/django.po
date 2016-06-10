@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-10 19:08+0400\n"
+"PO-Revision-Date: 2013-01-17 21:52\n"
+"Last-Translator:   <>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: .\__init__.py:5
+msgid "Exelparser"
+msgstr "Loader prislister"
+
+#: .\admin.py:25
+msgid "Additionally"
+msgstr "Derudover"
+
+#: .\models.py:13
+msgid "title"
+msgstr "navn"
+
+#: .\models.py:14
+msgid "callback function"
+msgstr "callback-funktion"
+
+#: .\models.py:14
+msgid "example: exelparser.callback.exel_parser_test"
+msgstr "for eksempel: exelparser.callback.exel_parser_test"
+
+#: .\models.py:15
+msgid "sort"
+msgstr "sort"
+
+#: .\models.py:21
+msgid "exel uploader"
+msgstr "loader"
+
+#: .\models.py:22
+msgid "exel uploaders"
+msgstr "loaders"
+
+#: .\models.py:29
+msgid "Expects"
+msgstr "i køen"
+
+#: .\models.py:30
+msgid "In work"
+msgstr "i"
+
+#: .\models.py:31
+msgid "Done"
+msgstr "uploadet"
+
+#: .\models.py:36
+msgid "uploader"
+msgstr "loader"
+
+#: .\models.py:37
+msgid "file"
+msgstr "fil"
+
+#: .\models.py:37
+msgid ".xls"
+msgstr ""
+"Filnavnet må kun indeholde alfanumeriske tegn, tegn-_. Ekspansion af filen "
+"-. xls"
+
+#: .\models.py:38
+msgid "multiplied by"
+msgstr "multipliceret med"
+
+#: .\models.py:39
+msgid "in default"
+msgstr "som standard"
+
+#: .\models.py:39
+msgid "Upload in the default category."
+msgstr ""
+"Indlæs i standard kategorien, hvis du ikke kan bestemme den kategori, "
+"listepris."
+
+#: .\models.py:40
+msgid "status parserfile"
+msgstr "status"
+
+#: .\models.py:41
+msgid "errors"
+msgstr "fejl og meddelelser"
+
+#: .\models.py:53 .\models.py:60 .\models.py:67 .\models.py:76 .\models.py:85
+#: .\models.py:94 .\models.py:105 .\models.py:116 .\models.py:127
+#: .\models.py:137
+msgid "Unknown"
+msgstr "Ukendt"
+
+#: .\models.py:54
+msgid "At create"
+msgstr "Powered by"
+
+#: .\models.py:61
+msgid "Start date"
+msgstr "Start dato"
+
+#: .\models.py:68
+msgid "Start end"
+msgstr "Udløbsdato"
+
+#: .\models.py:74 .\models.py:83 .\models.py:92 .\models.py:103
+#: .\models.py:114 .\models.py:125 .\models.py:135
+msgid "open list"
+msgstr "åbne en liste over"
+
+#: .\models.py:77
+msgid "Update product"
+msgstr "Opdaterede stillinger"
+
+#: .\models.py:86
+msgid "Create product"
+msgstr "Oprettet positioner"
+
+#: .\models.py:95
+msgid "Product not in price"
+msgstr "Genstande der skal findes i prislisten"
+
+#: .\models.py:106
+msgid "Last 1 week"
+msgstr "Mere end 1 uge siden"
+
+#: .\models.py:117
+msgid "Last 2 week"
+msgstr "Mere end 2 uger siden"
+
+#: .\models.py:128
+msgid "Last 1 month"
+msgstr "Mere end 1 måned siden"
+
+#: .\models.py:138
+msgid "Last 2 month"
+msgstr "Mere end 2 måneder siden"
+
+#: .\models.py:144
+msgid "Status"
+msgstr "Status"
+
+#: .\models.py:148
+msgid "exel file"
+msgstr "pris list"
+
+#: .\models.py:149
+msgid "exel files"
+msgstr "prislister"
+
+#: .\models.py:196
+msgid "ExelParserInfo"
+msgstr "Information"
+
+#: .\management\commands\exelparser_execute.py:42
+msgid "Error open file.\n"
+msgstr "Fejl at åbne filen.\n"
+
+#: .\management\commands\exelparser_execute.py:51
+msgid "Error path callback function.\n"
+msgstr "Fejl i callback-vejs funktion.\n"
+
+#: .\management\commands\exelparser_execute.py:56
+msgid "Error import callback function.\n"
+msgstr "Import error callback-funktionen.\n"
+
+#: .\management\commands\exelparser_execute.py:72
+msgid "Callback function not execute.\n"
+msgstr "Runtime error callback-funktionen.\n"
+
+#: .\management\commands\exelparser_execute.py:77
+#, python-format
+msgid "'%s' not added.\n"
+msgstr "'%s' ikke tilsat.\n"
+
+#: .\management\commands\exelparser_execute.py:95
+msgid "Exel parser done.\n"
+msgstr "Overførsel er afsluttet.\n"

@@ -1,0 +1,43 @@
+{% extends "default.html" %}
+
+{% load i18n translate_interface thumbnail %}
+
+{% block title %}{{ action.title }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li><a href="/actions/">{{ infc|trans:"Actions" }}</a><span class="sep">/<span></li>
+	<li>{{ action.title }}</li>
+{% endblock %}
+
+{% block content %}
+		{% if action %}
+			<div class="otstup_min">
+				<h2 class="f_left">{{ action.title }}</h2>
+				<div class="date otstup_min f_right"><span class="grad border_r">{{ action.created_at|date:"d.m.Y" }}</span></div>
+				<div class="clr"></div>
+				{% if action.image or action.flash %}
+					<div class="left_img">
+						<div id="flash_banner_{{ action.id }}">
+							{% if action.image %}
+								{% thumbnail action.image "250" format="PNG" as im %}
+									<img class="border_r" src="{{ im.url }}" alt="{{ action.title }}" />
+								{% endthumbnail %}
+							{% endif %}
+						</div>
+						{% if action.flash %}
+							<script type="text/javascript">swfobject.embedSWF("{{ action.flash.url }}", "flash_banner_{{ action.id }}", "250", "150", "9.0.0", false, false,  false, false);</script>
+						{% endif %}
+					</div>
+				{% endif %}
+				{{ action.text|safe }}
+			</div>
+			<div class="clr"></div>
+		{% else %}
+			<h2>{{ infc|trans:"In work" }}</h2>
+		{% endif %}
+		<a class="f_right" href="/actions/">{{ infc|trans:"All actions" }}</a>
+		<div class="clr"></div>
+
+{% endblock %}

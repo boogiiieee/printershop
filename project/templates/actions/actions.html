@@ -1,0 +1,50 @@
+{% extends "default.html" %}
+
+{% load i18n translate_interface thumbnail %}
+
+{% block title %}{{ infc|trans:"Actions" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"Actions" }}</li>
+{% endblock %}
+
+{% block content %}
+	{% if actions_list %}
+		{% for item in actions_list %}
+			<div {% if not forloop.last %} class="block"{% endif %}>
+				<h3 class="f_left">
+					<a href="{{ item.get_item_url }}">{{ item.title }}</a>
+				</h3>
+				<div class="date otstup_min f_right"><span class="grad border_r">{{ item.created_at|date:"d.m.Y" }}</span></div>
+				<div class="clr"></div>
+				{% if item.image or item.flash %}
+					<div class="left_img">
+						<div  class="border_r">
+							<div id="flash_banner_{{ item.id }}">
+								{% if item.image %}
+									{% thumbnail item.image "250" format="PNG" as im %}
+										<img src="{{ im.url }}" alt="{{ item.title }}" />
+									{% endthumbnail %}
+								{% endif %}
+							</div>
+						</div>
+						{% if item.flash %}
+							<script type="text/javascript">
+								var params = {wmode : "transparent",scale:"noscale"};
+								swfobject.embedSWF("{{ item.flash.url }}", "flash_banner_{{ item.id }}", "250", "150", "9.0.0", false, false,  false, params, false);
+							</script>
+						{% endif %}
+					</div>
+				{% endif %}
+
+				{{ item.text|safe|truncatewords:"40" }}<a href="{{ item.get_item_url }}" class="readmore">{{ infc|trans:"readmore" }}</a>
+			</div>
+			<div class="clr"></div>
+		{% endfor %}
+	{% else %}
+		<h3>{{ infc|trans:"In work" }}</h3>
+	{% endif %}
+	{% include "paginate.html" %}
+{% endblock %}

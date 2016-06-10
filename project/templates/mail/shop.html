@@ -1,0 +1,31 @@
+{% load i18n shop_tags %}
+<br/>
+<div>{% blocktrans with obj.id as id %}Order #{{ id }}.{% endblocktrans %}</div>
+<br/>
+{% block content %}{% endblock %}
+<br/>
+<div><strong>{% trans "Name" %}:</strong> {{ obj.name }}</div>	
+{% if obj.phone %}<div><strong>{% trans "Phone" %}:</strong> {{ obj.phone }}</div>{% endif %}
+{% if obj.mbphone %}<div><strong>{% trans "MbPhone" %}:</strong> {{ obj.mbphone }}</div>{% endif %}
+{% if obj.email %}<div><strong>{% trans "E-mail" %}:</strong> {{ obj.email }}</div>{% endif %}
+{% if obj.address %}<div><strong>{% trans "Address" %}:</strong> {{ obj.address }}</div>{% endif %}
+{% if obj.inn %}<div><strong>{% trans "Inn" %}:</strong> {{ obj.inn }}</div>{% endif %}
+{% if obj.text %}<div><strong>{% trans "Text" %}:</strong> {{ obj.text|striptags|safe }}</div>{% endif %}
+<br/>
+<div><strong>{% trans "Status" %}:</strong> {{ obj.status }}</div>
+<br/>
+<div><strong>{% trans "Composition order" %}:</strong></div>
+{% for p in obj.get_op %}
+	<div>
+		<strong>{{ forloop.counter }}.</strong>&nbsp;{{ p.product.category.title }}&nbsp;{{ p.product.printer.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ p.product.title }},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ p.count }} {% trans "stk." %},&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% blocktrans with p.get_total_cost|shop_intcomma as cost %}{{ cost }} rub.{% endblocktrans %}
+	</div>
+{% endfor %}
+{% if obj.is_delivery %}
+	<br/>
+	<div><strong>{% trans "Delivery" %}:</strong> {% trans "rub." %} {{ obj.cost_delivery|shop_intcomma }}</div>
+{% endif %}
+<br/>
+<div><strong>{% trans "Total" %}:</strong> {% blocktrans with obj.get_total_cost|shop_intcomma as total %}{{ total }} rub.{% endblocktrans %}</div>
+<br/>
+<div>{% trans "Auto send message." %}</div>
+<br/>

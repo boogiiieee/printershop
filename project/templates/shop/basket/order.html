@@ -1,0 +1,137 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface shop_tags %}
+
+{% block title %}{{ infc|trans:"Order" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li><a href="/basket/">{{ infc|trans:"Basket" }}</a><span class="sep">/<span></li>
+	<li>{{ infc|trans:"Order" }}</li>
+{% endblock %}
+
+{% block shop_top %}
+{% endblock %}
+
+{% block shop_content %}
+	<div>
+		<form class="otstup_min" name="shop_order_form" action="" method="post">{% csrf_token %}
+			<table class="for_50">
+				<tr>
+					<td {% if form.name.errors %} class="error" {% endif%}>
+						<label>{{ form.name.label }}{% if form.name.errors %}{{ form.errors.name }}{% endif%}</label>
+						{{ form.name }}
+					</td>
+					<td {% if form.address.errors %} class="error" {% endif%}>
+						<label>{{ form.address.label }}{% if form.address.errors %}{{ form.errors.address }}{% endif%}</label>
+						{{ form.address }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.email.errors %} class="error" {% endif%}>
+						<label>{{ form.email.label }}{% if form.email.errors %}{{ form.errors.email }}{% endif%}</label>
+						{{ form.email }}
+					</td>
+					<td valign="top" rowspan="3" {% if form.text.errors %} class="error" {% endif%}>
+						<label>{{ form.text.label }}{% if form.text.errors %}{{ form.errors.text }}{% endif%}</label>
+						{{ form.text }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.phone.errors %} class="error" {% endif%}>
+						<label>{{ form.phone.label }}{% if form.phone.errors %}{{ form.errors.phone }}{% endif%}</label>
+						{{ form.phone }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.mbphone.errors %} class="error" {% endif%}>
+						<label>{{ form.mbphone.label }}{% if form.mbphone.errors %}{{ form.errors.mbphone }}{% endif%}</label>
+						{{ form.mbphone }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.agreement.errors %} class="error" {% endif%}>
+						<label>{{ form.agreement.label }}{% if form.agreement.errors %}{{ form.errors.agreement }}{% endif%}</label>
+						{{ form.agreement }}<a href="/agreement/" target="_blank">{{ infc|trans:"I agree with conditions of terms of service *" }}</a>
+					</td>
+					
+					<td {% if form.is_org.errors %} class="error" {% endif%}>
+						<label>{{ form.is_org.label }}{% if form.is_org.errors %}{{ form.errors.is_org }}{% endif%}</label>
+						{{ form.is_org }} {{ infc|trans:"Check if you have a legal entity" }}
+					</td>
+				</tr>
+				<tr id="row_inn" style="display:none">
+					<td></td>
+					<td {% if form.inn.errors %} class="error" {% endif%}>
+						<label>{{ form.inn.label }}{% if form.inn.errors %}{{ form.errors.inn }}{% endif%}</label>
+						{{ form.inn }}
+					</td>
+				</tr>
+				<script>
+					function org_inn(){
+						if ($('#id_is_org').prop("checked")){
+							$('#row_inn').show();
+						} else { $('#row_inn').hide(); }
+					};
+					org_inn();
+					$('#id_is_org').change(function(){ org_inn(); });
+				</script>
+			</table>
+		</form>
+		<div>
+			<a class="but f_right" href="#" onclick="document.shop_order_form.submit(); return false;">{{ infc|trans:"Send" }}</a>
+			<a class="but f_left" href="/basket/" title="Назад">{{ infc|trans:"Back" }}</a>
+		</div>
+		<div class="clr"></div>
+	</div>
+{% endblock %}
+
+{% block content2 %}
+	{% if o %}
+	<div class="content block border_r">
+		<h2>{{ infc|trans:"Composition order" }}</h2>
+		{% if o.get_op %}
+			<table class="t_bg border_r">
+				<tbody>
+					<tr class="t_title border_r_t">
+						<th>{{ infc|trans:"Brand" }}</th>
+						<th>{{ infc|trans:"Printer" }}</th>
+						<th>{{ infc|trans:"Patron" }}</th>
+						<th width="50px">{{ infc|trans:"Price" }}</th>
+						<th width="70px">{{ infc|trans:"Cost" }}</th>
+						<th>{{ infc|trans:"Amount" }}</th>
+					</tr>
+
+					{% for b in o.get_op %}
+						<tr class="t_grad">
+							<td class="t_name">{{ b.product.category.title }}</td>
+							<td class="t_left">{{ b.product.printer.title }}</td>
+							<td>{{ b.product.title }}</td>
+							<td>{{ infc|trans:"rub." }} {{ b.get_cost|shop_intcomma }}</td>
+							<td>{{ infc|trans:"rub." }} {{ b.get_total_cost|shop_intcomma }}</td>
+							<td>{{ b.count }}</td>
+						</tr>
+					{% endfor %}
+					
+					{% if o.is_delivery %}
+						<tr class="t_grad">
+							<td></td>
+							<td colspan="5" class="t_right">{{ infc|trans:"Delivery" }}:&nbsp; {{ infc|trans:"rub." }} {{ o.cost_delivery|shop_intcomma }}</td>
+						</tr>
+					{% endif %}
+
+					<tr class="border_r_b">
+						<th></th>
+						<th colspan="5" class="t_right">
+							{{ infc|trans:"In total" }}:&nbsp; {{ infc|trans:"rub." }} {{ o.get_total_cost|shop_intcomma }}
+						</th>
+					</tr>
+				</tbody>
+			</table>
+		{% else %}
+			<h3>{{ infc|trans:"Cart is empty." }}</h3>
+		{% endif %}
+	</div>
+	{% endif %}
+{% endblock %}

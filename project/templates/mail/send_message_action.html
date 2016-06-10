@@ -1,0 +1,8 @@
+{% load i18n %}
+<div>{% blocktrans %}Message from the site {{ domain }}.{% endblocktrans %}</div>
+<br/>
+<div>{{ text|striptags|safe }}</div>
+<br/>
+<div>http://{{ domain }}</div>
+<br/>
+<div>{% trans "Auto send message." %}</div>

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load i18n translate_interface shop_tags actions_tags %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{% block title %}{% if request.flatpage %}{{ request.flatpage.title }}{% endif %}{% endblock %}</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<link rel="shortcut icon" href="{{ MEDIA_URL }}img/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/default.css">
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/text.css">
+	<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/select.css">
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<!--[if gt IE 7]><link rel="stylesheet" href="{{ MEDIA_URL }}css/style_ie.css" type="text/css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" href="{{ MEDIA_URL }}css/style_ie8.css" type="text/css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="{{ MEDIA_URL }}css/style_ie7.css" type="text/css" /><![endif]-->
+
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/swfobject_new.js"></script>
+	<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.selectbox.js"></script>
+	<script>
+		$(document).ready(function(){
+			function add_default_input(id, name) {
+				if($(id).val() == ''){ $(id).val(name); };
+				$(id).click(function(){ if ($(this).val() == name) { $(this).val(''); }; });
+				$(id).blur(function(){ if ($(this).val() == '') { $(this).val(name); }; });
+			};
+			
+			add_default_input('#top_block #id_q', '{{ infc|trans:"search in site..." }}');
+			add_default_input('.search_q #id_q', '{{ infc|trans:"search in site..." }}');
+			$('select').selectbox();
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="header">
+
+			<!--Главное меню-->
+			<div id="top_menu" class="block grad border_r">
+				{% if config.organization %}<h1 class="f_left"><a href="/">{{ config.organization }}</a></h1>{% endif %}
+				<ul>
+					<li {% ifequal active 1 %}class="active"{% endifequal %}><a href="/">{{ infc|trans:"About company" }}</a><span class="sep">/</span></li>
+					<li {% ifequal active 2 %}class="active"{% endifequal %}><a href="/catalog/">{{ infc|trans:"Catalog" }}</a><span class="sep">/</span></li>
+					<li {% ifequal request.flatpage.id 13 %}class="active"{% endifequal %}><a href="/condition/">{{ infc|trans:"Condition" }}</a><span class="sep">/</span></li>
+					<li {% ifequal active 3 %}class="active"{% endifequal %}><a href="/basket/">{{ infc|trans:"Basket" }}</a><span class="sep">/</span></li>
+					<li {% ifequal active 4 %}class="active"{% endifequal %}><a href="/actions/">{{ infc|trans:"Actions" }}</a><span class="sep">/</span></li>
+					<li {% ifequal active 5 %}class="active"{% endifequal %}><a href="/faq/">{{ infc|trans:"FAQ" }}</a><span class="sep">/</span></li>
+					<li {% ifequal active 6 %}class="active"{% endifequal %}><a href="/contacts/">{{ infc|trans:"Contacts" }}</a></li>
+				</ul>
+			</div>
+			<div class="block">
+				{% if config.phone1 %}
+					<div class="phone"><span class="phon_ico"></span>{{ config.phone1 }}</div>
+				{% endif %}
+				{% if config.office1 %}
+					<div class="addres">{{ config.office1 }}</div>
+				{% endif %}
+			</div>
+		</div>
+
+		<div id="middle">
+			<div id="container">
+				<div id="content">
+
+					<div id="top_block" class="block grad border_r">
+						<div class="item_block">
+							{% ShopSearchMin 'shop_search_min_form' %}
+							<form class="t_center" name="shop_search_min_form" action="/search/" method="get">
+								{{ shop_search_min_form.q }}
+								<a id="but_search" href="#" onclick="return submit_search_min_form(); return false;">{{ infc|trans:"Search" }}</a>
+							</form>
+						</div>
+						<script>
+							function submit_search_min_form()
+								{
+								  var par=$('#top_block #id_q')
+							      if (par.val()=='{{ infc|trans:"search in site..." }}'){par.val('');}
+								  par.parent('form').submit();
+								  return false;
+								}
+						</script>
+						
+						<div class="item_block t_center overflow_h">
+							<a class="my_order" href="/catalog/"><span class="bg"><span class="ico_conv"></span><span class="t_shadow uppercase">{{ infc|trans:"Order" }}</span><span class="white">{{ infc|trans:"online" }}</span></span></a>
+						</div>
+						
+						<div class="f_right item_block shadow grad_shadow border_r">
+							<h5>{{ infc|trans:"Your basket" }}</h5>
+							<a class="f_right white" href="/basket/">{{ infc|trans:"Go to basket" }}</a>
+							<div class="clr"></div>
+							<div id="basket_min">{% ShopBasketMin %}</div>
+						</div>
+					</div>
+					
+					<div class="content block border_r">
+						<div id="breadcrumbs" class="block">
+							<ul>
+								<li><a href="/">{{ infc|trans:"Home" }}</a><span class="sep">/</span></li>
+								{% block breadcrumbs %}<li>{{ request.flatpage.title }}</li>{% endblock %}
+							</ul>
+						</div>
+						
+						{% include "message.html" %}
+						
+						{% block flatpage %}
+							{% if request.flatpage %}
+								<div class="block overflow_h">
+									<h2>{{ request.flatpage.title }}</h2>
+									{% if request.flatpage.content %}{{ request.flatpage.content|safe }}{% endif %}
+								</div>
+							{% endif %}
+						{% endblock %}
+					
+						{% block content %}{% endblock %}
+					</div>
+					{% block content2 %}{% endblock %}
+				</div>
+			</div>
+
+			<div class="sidebar" id="sideLeft">
+				<div class="block">
+					{% ShopGetCategory 'menu_category_list' %}
+					{% if menu_category_list %}
+						<ul class="menu">
+							{% for category in menu_category_list %}
+								<li {% ifequal active2 category.id %}class="active"{% endifequal %}>
+									<a href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+				<!--div class="block">
+					<img src="{{ MEDIA_URL }}img/banner.png">
+				</div-->
+				
+				<!--Новые акции-->
+				<div id="block_actions" class="block">
+					{% ActionsGetItem 'block_actions_list' 3 %}
+					{% if block_actions_list %}
+						<h5 class="f_left white">{{ infc|trans:"Actions" }}</h5>
+						<a class="f_right all" href="/actions/">{{ infc|trans:"all actions" }}</a>
+						<div class="clr"></div>
+						<ul>
+							{% for item in block_actions_list %}
+								<li class="otstup_min">
+									<div class="date">
+										<span class="grad border_r">{{ item.created_at|date:"d.m.Y" }}</span>
+									</div>
+									<a href="/actions/{{ item.id }}">{{ item.text|striptags|safe|truncatewords:15 }}<span class="readmore"></span></a>
+								</li>
+							{% endfor %}
+						</ul>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer" class="border_r grad">
+		<div id="footer_about_company" class="footer_item">
+
+			<div class="otstup_min">
+				© 2012 {{ config.organization }}
+			</div>
+
+			<div>
+				<a href="http://web-aspect.ru/">web-aspect.ru</a>
+			</div>
+		</div>
+		
+		<div id="footer_contact" class="footer_item">
+			{% if config.office1 %}
+				<div class="addres otstup_min">{{ infc|trans:"Address" }}: {{ config.office1 }}</div>
+			{% endif %}
+			{% if config.phone1 %}
+				<div class="phone"><span class="mini">{{ infc|trans:"+7(3822)" }}</span> {{ config.phone1 }}</div>
+			{% endif %}
+		</div>
+		
+		<div id="footer_menu" class="footer_item">
+			<ul>
+				<li><a href="/actions/">{{ infc|trans:"Actions" }}</a></li>
+				<li><a href="/faq/">{{ infc|trans:"FAQ" }}</a></li>
+				<li><a href="/contacts/">{{ infc|trans:"Contacts" }}</a></li>
+			</ul>
+			<ul>
+				<li><a href="/">{{ infc|trans:"About company" }}</a></li>
+				<li><a href="/catalog/">{{ infc|trans:"Catalog" }}</a></li>
+				<li><a href="/basket/">{{ infc|trans:"Basket" }}</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<script>
+		function put_to_basket(obj, id){
+			$.ajax({
+				url: '/shop/add/?id='+id,
+				success: function(){
+					$('#basket_min').load('/basket/ajax/');
+					obj.next('.add').show().delay(1000).fadeOut();
+				}
+			});
+		}
+	</script>
+</body>
+</html>

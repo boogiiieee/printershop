@@ -1,0 +1,105 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_modify adminmedia %}
+{% load url from future %}
+
+{% block title %}{% trans "Report" %} | {% trans 'Django site admin' %}{% endblock %}
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/forms.css" />{% endblock %}
+{% block bodyclass %}shop-report change-form{% endblock %}
+
+{% block breadcrumbs %}
+	<div class="breadcrumbs">
+		<a href="/admin/">{% trans "Home" %}</a> &rsaquo;
+		<a href="/admin/shop/">{% trans "Shop" %}</a> &rsaquo;
+		{% trans "Report" %}
+	</div>
+{% endblock %}
+
+{% block content %}
+	<h1>{% trans "Create report" %}</h1>
+	<ul class="object-tools">
+		<li><a href="/admin/shop/save_history/?stdate={{ stdate|date:"d.m.Y" }}&spdate={{ spdate|date:"d.m.Y" }}">{% trans "Download history" %}</a></li>
+	</ul>
+	
+	<div id="content-main">
+		<form enctype="multipart/form-data" action="" method="post" id="site_form">{% csrf_token %}
+			<div>
+				<fieldset class="module aligned ">
+					<div class="form-row stdate">
+						<div>
+							<label for="id_stdate" class="required">{{ form.stdate.label }}:</label>
+							{{ form.stdate }}
+						</div>
+					</div>
+					<div class="form-row spdate">
+						<div>
+							<label for="id_spdate" class="required">{{ form.spdate.label }}:</label>
+							{{ form.spdate }}
+						</div>
+					</div>
+				</fieldset>
+
+				<div class="submit-row" >
+					<input type="submit" value="{% trans "Create" %}" class="default" name="_save" />
+				</div>
+				
+				{% if data %}
+					<div class="inline-group">
+						<div class="tabular inline-related last-related">
+							<fieldset class="module">
+								<h2>{% trans "Basic data" %}</h2>
+								<table>
+									<thead>
+										<tr>
+											<th>{% trans "Unique customers" %}</th>
+											<th>{% trans "Total orders" %}</th>
+											<th>{% trans "Paid orders" %}</th>
+											<th>{% trans "The total number of processed cartridges" %}</th>
+											<th>{% trans "Turnover" %}</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr class="row1">
+											<td>{{ unique_customers }}</td>
+											<td>{{ total_orders }}</td>
+											<td>{{ paid_orders }}</td>
+											<td>{{ total_processed }}</td>
+											<td>{{ turnover }} {% trans "rub." %}</td>
+										</tr>
+									</tbody>
+								</table>
+							</fieldset>
+						</div>
+
+						<div class="tabular inline-related last-related">
+							<fieldset class="module">
+								<h2>{% trans "Statistic" %}</h2>
+								<table>
+									<thead>
+										<tr>
+											<th>{% trans "Product" %}</th>
+											<th>{% trans "Processed cartridges" %}</th>
+											<th>{% trans "Abandoned cartridges" %}</th>
+											<th>{% trans "Histogram popularity" %}</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										{% for value in statistic %}
+											<tr class="row1">
+												<td>{{ value.product.category.title }} {{ value.product.printer.title }} {{ value.product.title }}</td>
+												<td>{{ value.processed_cartridges }}</td>
+												<td>{{ value.abandoned_cartridges }}</td>
+												<td>{% widthratio value.processed_cartridges total_processed 100 %}% <div style="background:green; height:10px; width:{% widthratio value.processed_cartridges total_processed 500 %}px"></div></td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</fieldset>
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</form>
+	</div>
+{% endblock %}

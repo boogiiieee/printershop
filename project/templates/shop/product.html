@@ -1,0 +1,24 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface %}
+
+{% block title %}{{ ct.title }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li><a href="/catalog/">{{ infc|trans:"Catalog" }}</a><span class="sep">/</span></li>
+	<li>{{ ct.title }}</li>
+{% endblock %}
+
+{% block shop_title %}<h2>{{ ct.title }}</h2>{% endblock %}
+
+{% block content2 %}{% endblock %}
+
+{% block shop_content %}
+	{% if product_list %}
+		{% include "shop/list.html" %}
+	{% else %}
+		<h3>{{ infc|trans:"In work" }}</h3>
+	{% endif %}
+{% endblock %}

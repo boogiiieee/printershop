@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<script type="text/javascript" src="https://ssl.ditonlinebetalingssystem.dk/integration/ewindow/paymentwindow.js"></script>
+<script type="text/javascript">
+	function startPayment(){
+		paymentwindow = new PaymentWindow({
+			'windowstate': "{{ params.windowstate }}",
+			'paymentcollection': "{{ params.paymentcollection }}",
+			'language': "{{ params.language }}",
+			'merchantnumber': "{{ params.merchantnumber }}",
+			'windowid': "{{ params.windowid }}",
+			'amount': "{{ params.useramount }}00",
+			'currency': "{{ params.currency }}",
+			'orderid': "{{ params.orderid }}",
+			'accepturl': "{{ params.accepturl }}",
+			'cancelurl': "{{ params.cancelurl }}",
+			'hash': "{{ params.hash }}"
+		});
+
+		paymentwindow.open();
+	}
+</script>

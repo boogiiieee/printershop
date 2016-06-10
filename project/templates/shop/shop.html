@@ -1,0 +1,44 @@
+{% extends "default.html" %}
+
+{% load i18n translate_interface shop_tags %}
+
+{% block content %}
+	{% block shop_title %}{% endblock %}
+	{% block shop_top %}
+		<!--Расширенный поиск-->
+		<div class="block">
+			{% ShopSearch 'shop_search_form' %}
+			<form name="shop_search_form" action="/search/" method="get">
+				<table class="pos_rel">
+					<tr>
+						<td>
+							{{ shop_search_form.c }}
+						</td>
+						<td>{{ shop_search_form.p }}</td>
+						<td class="search_q">
+							{{ shop_search_form.q }}
+							<a  class="but search_but" href="#"><span>&nbsp;</span></a>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script>
+			$('select').change(function(){
+			  if ($('.search_q #id_q').val()=='{{ infc|trans:"search in site..." }}'){$('.search_q #id_q').val('');}
+			  document.shop_search_form.submit(); 
+			  return false;
+			});
+			$('.search_but').click(function(){
+			  if ($('.search_q #id_q').val()=='{{ infc|trans:"search in site..." }}'){$('.search_q #id_q').val('');}
+			  document.shop_search_form.submit(); 
+			  return false;
+			});
+		</script>
+	{% endblock %}
+	
+	{% block shop_content %}{% endblock %}
+	{% block shop_bottom %}{% endblock %}
+{% endblock %}
+{% block content2 %}
+{% endblock %}

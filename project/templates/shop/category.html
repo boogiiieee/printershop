@@ -1,0 +1,28 @@
+{% extends "shop/shop.html" %}
+
+{% load i18n translate_interface %}
+
+{% block title %}{{ infc|trans:"Catalog" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"Catalog" }}</li>
+{% endblock %}
+
+{% block content2 %}{% endblock %}
+
+{% block shop_content %}
+	{% if category_list %}
+		<ul id="category_list">
+			{% for category in category_list %}
+				<li class="item_block">
+					<a class="big" href="{{ category.get_absolute_url }}">{{ category.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="clr"></div>
+	{% else %}
+		<h3>{{ infc|trans:"In work" }}</h3>
+	{% endif %}
+{% endblock %}

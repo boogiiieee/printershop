@@ -1,0 +1,69 @@
+{% extends "default.html" %}
+
+{% load i18n translate_interface %}
+
+{% block title %}{{ infc|trans:"FAQ" }}{% endblock %}
+{% block keywords %}{% endblock %}
+{% block description %}{% endblock %}
+
+{% block breadcrumbs %}
+	<li>{{ infc|trans:"FAQ" }}</li>
+{% endblock %}
+
+{% block content %}
+		<form class="block" name="question_answer_form" action="" method="post">{% csrf_token %}
+			<table  class="for_50">
+				<tr>
+					<td {% if form.name.errors%} class="error" {% endif%}>
+						<label>{{ form.name.label }}{% if form.name.errors %}{{ form.errors.name }}{% endif%}</label>
+						{{ form.name }}
+					</td>
+					<td rowspan="3" {% if form.question.errors%} class="error" {% endif%}>
+						<label>{{ form.question.label }}{% if form.question.errors %}{{ form.errors.question }}{% endif%}</label>
+						{{ form.question }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.email.errors%} class="error" {% endif%}>
+						<label>{{ form.email.label }}{% if form.email.errors %}{{ form.errors.email }}{% endif%}</label>
+						{{ form.email }}
+					</td>
+				</tr>
+				<tr>
+					<td {% if form.phone.errors%} class="error" {% endif%}>
+						<label>{{ form.phone.label }}{% if form.phone.errors %}{{ form.errors.phone }}{% endif%}</label>
+						{{ form.phone }}
+					</td>
+				</tr>
+			</table>
+		</form>
+		<div class="t_right">
+			<a class="but" href="#" onclick="document.question_answer_form.submit(); return false;">{{ infc|trans:"Send" }}</a>
+		</div>
+{% endblock %}
+
+{% block content2 %}
+	{% if question_list %}
+		<div class="content block border_r">
+			{% block content2_text %}
+				{% for item in question_list %}
+					<div {% if not forloop.last  %}class="block"{% endif%}>
+						<h3 class="f_left">{{ item.name }}</h3>
+						<span class="mini italic">{{ item.date_question|timesince }} {{ infc|trans:"ago" }}</span>
+						<div class="clr"></div>
+						<p>{{ item.question|striptags|safe }}</p>
+						{% if item.answer %}
+							<div class="answer">
+								<h3 class="f_left">{{ infc|trans:"Answer" }} {{ item.name_answer }}</h3>
+								<span class="mini italic">{{ item.date_question|timesince }} {{ infc|trans:"ago" }}</span>
+								<div class="clr"></div>
+								{{ item.answer|safe }}
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+				{% include "paginate.html" %}
+			{% endblock %}
+		</div>
+	{% endif %}
+{% endblock %}
